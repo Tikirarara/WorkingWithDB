@@ -12,7 +12,7 @@ public class Lesson {
     public Lesson(long id, String lessonName, String date) throws ParseException {
         this.id = id;
         this.lessonName = lessonName;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         this.date = sdf.parse(date);
     }
 
