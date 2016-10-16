@@ -1,13 +1,19 @@
+package dao.impl;
+
+import dao.StudentDao;
+import models.Student;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class StudentDaoImpl implements StudentDao{
-    private DataSource dataSource;
+public class StudentDaoImpl implements StudentDao {
+    private Connection connection;
 
-    public StudentDaoImpl(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public StudentDaoImpl(Connection connection) {
+        this.connection = connection;
     }
 
     public void insert(Student student) {
@@ -19,8 +25,7 @@ public class StudentDaoImpl implements StudentDao{
                 student.getCource() + "')";
 
         try {
-            Connection connection = dataSource.getConnection();
-            Statement statement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

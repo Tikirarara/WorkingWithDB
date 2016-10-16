@@ -1,3 +1,4 @@
+package models;
 
 public class Student {
     private final long id;
@@ -36,7 +37,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student: " +
+        return "models.Student: " +
                 "\n id: " + id +
                 "\n name: " + name +
                 "\n lastName: " + lastName +
